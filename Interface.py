@@ -18,8 +18,10 @@ def define():
         Label(root, text=data[word], pady=20, bg='Aquamarine').pack()
     elif word.title() in data: 
         Label(root, text=str(data[word.title()]), pady=20, bg='Aquamarine').pack()
+    elif word.upper() in data: 
+        Label(root, text=str(data[word.upper()]), pady=20, bg='Aquamarine').pack()
     elif len(get_close_matches(word, data.keys()))>0:
-        choice= messagebox.askquestion("Ask Question","Did you mean %s instead? Y/N: "%get_close_matches(word, data.keys())[0])
+        choice= messagebox.askquestion("Ask Question","Did you mean %s instead?"%get_close_matches(word, data.keys())[0])
         if choice=="yes":
             Label(root, text=data[get_close_matches(word, data.keys())[0]], pady=20, bg='Aquamarine').pack()
         elif choice=="no":
